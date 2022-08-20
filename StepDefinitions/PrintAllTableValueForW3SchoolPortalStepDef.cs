@@ -19,8 +19,12 @@ namespace SeleniumMyEnterprise.StepDefinitions
         public void GivenUserIsOnTheGivenURLPage()
         {
 
+            
+            ChromeOptions option = new ChromeOptions();
+            option.AddArguments("--headless");
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-            driver = new ChromeDriver();
+            
+            driver = new ChromeDriver(option);
             driver.Url = "https://www.w3schools.com/html/html_tables.asp";
             driver.Manage().Window.Maximize();
 
